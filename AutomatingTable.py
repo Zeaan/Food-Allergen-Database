@@ -17,9 +17,9 @@ def HTML_Commands(sheet):
         FamilyType = str(sheet.cell(row, 7).value)
         print("<tr>")
         print('<th scope = "row"> '+str(i)+'</th>')
-        print('<td> <a href="'+SequenceLink+'">' + Name + '</a></th>')
+        print('<td> <a href="'+SequenceLink+'" target="_blank">' + Name + '</a></th>')
         print('<td> ' + NumberOfResidues + '</th>')
-        print('<td> <a href="'+StructureLink+'">' + Name + '</a></th>')
+        print('<td> <a href="'+StructureLink+'" target="_blank">' + Name + '</a></th>')
         print('<td> ' + FamilyType + '</th>')
         print("</tr>")
 
