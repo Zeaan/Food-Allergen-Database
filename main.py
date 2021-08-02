@@ -1,3 +1,4 @@
+#This Python file is for "search.html". It is repl of "Database" in Replit
 import openpyxl as xl
 
 print('On what basis do you want to perform search of allergens?\nWrite "A" for Searching on the basis of Family Type\nWrite "B" for Searching on the basis of Source')
@@ -18,10 +19,11 @@ try:
     for i in possibilities:
       if i not in l:
         l.append(i)
-    print('\nWrite exactly from one of these option')
-    for i in l:
-      print(i)
-    check = input()
+    print('\nWrite exactly from one of these options')
+    for i in range(len(l)):
+      print('If you want to search allergens in',l[i],', type "'+str(i)+'"')
+    index = int(input())
+    check = l[index]
     print('\n')
     return check
     
@@ -36,7 +38,7 @@ try:
       Structure = str(sheet.cell(row, 7).value)
       if check==data:
         i = i+1
-        print(str(i),'Protein Name:',ProteinName,'\nAllergen Name:',AllergenName,'\nNumber of Residues:',NumberOfResidues,'\nStructure:',Structure,'\n')
+        print(str(i),'. Protein Name:',ProteinName,'\nAllergen Name:',AllergenName,'\nNumber of Residues:',NumberOfResidues,'\nStructure:',Structure,'\n')
 
   sheet = read_Data('Database.xlsx', 'Form responses 1')
   column = 0
@@ -44,6 +46,8 @@ try:
     column = 9
   if searchType=='b':
     column = 10
+  if column==0:
+    print('Please type either "A" or "B"')
   check = gettingData(sheet,column)
   giveData(sheet,column,check)
   
